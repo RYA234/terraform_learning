@@ -1,4 +1,7 @@
-
+#  terraformブロック　以下のことを決める
+#  プロバイダーへの要求事項の設定
+#  HCP　Terraformの設定（第５章で解説）
+#  ステートファイルのHCP　Terraform への移行
 terraform {
     required_providers {
         docker = {
@@ -8,10 +11,15 @@ terraform {
     }
 }
 
+#  provider ブロック
+#  プロバイダーの設定
 provider "docker"{
     host = "unix:///var/run/docker.sock"
 }
 
+
+# resource　ブロック
+# 
 resource "docker_image" "nginx"{
     name = "nginx:latest"
     keep_locally = true
